@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/app.component';
 
-import { MegaMenuModule } from 'primeng/megamenu';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { MegaMenuModule } from 'primeng/megamenu';
     AppRoutingModule,
 
     // primeng modulok
-    MegaMenuModule
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
