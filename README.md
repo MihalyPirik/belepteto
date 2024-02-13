@@ -9,7 +9,7 @@
   - Jelszó hash
   - Beosztás
   - Admin-e? (Admin nem csak a saját adataihoz fér hozzá)
-- Olvasók
+- Olvasók (kártya / NFC / QR code)
   - Azonosító
   - Neve / Helyszín
   - Irány (ki / be)
