@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app.component';
+import { LoginComponent } from './components/login/login.component';
 
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule} from 'primeng/inputtext';
 import { PasswordModule} from 'primeng/password';
-import { LoginComponent } from './components/login/login.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,13 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
 
     // primeng modulok
     MenubarModule,
     InputTextModule,
-    PasswordModule
+    PasswordModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

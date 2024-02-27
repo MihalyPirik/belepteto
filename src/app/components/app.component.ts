@@ -26,7 +26,8 @@ export class AppComponent {
     {
       label: "Bejelentkezés",
       routerLink: "/login",
-      style: ['color: red;']
+      icon: 'pi pi-fw pi-user',
+      id: "login-menu-item"
     }
   ];
 }
