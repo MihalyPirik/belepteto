@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../../services/http.service';
+import { Message } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,27 +10,47 @@ import { HttpService } from '../../services/http.service';
 })
 export class LoginComponent {
   loading = false;
-  errorMessage = '';
+  errorMessages: Message[] = [];
 
   loginRequest = {
     loginName: '',
     password: '',
   };
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService,
+    private router: Router) { }
   login() {
+    this.errorMessages = [];
     if (!this.loginRequest.loginName) {
-      this.errorMessage = 'A felhasználónév megadása kötelező!';
-      return;
+      this.errorMessages.push({
+        detail: 'A felhasználónév megadása kötelező!',
+        severity: 'error',
+        summary: 'Hiba',
+      });
     }
     if (!this.loginRequest.password) {
-      this.errorMessage = 'A jelszó megadása kötelező!';
+      this.errorMessages.push({
+        detail: 'Kérem adja meg a jelszavát!',
+        severity: 'error',
+        summary: 'Hiba',
+      });
+    }
+    if (this.errorMessages.length > 0) {
       return;
+
     }
     this.httpService.login(this.loginRequest).subscribe({
-      next: (result: boolean) => {},
+      next: (result: boolean) => {
+        this.router.navigate(['/']);
+      },
       error: (err: any) => {
-        this.errorMessage = err.error?.message ?? err.message;
+        console.log(err);
+
+        this.errorMessages = [{
+          detail: err.error?.message ?? err.message,
+          severity: 'error',
+          summary: 'Hiba',
+        }];
       }
     })
   }

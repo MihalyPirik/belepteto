@@ -4,7 +4,7 @@
 @import "primeflex/primeflex.css";
 
 @media only screen and (min-width: 962px) {
-  #login-menu-item {
+  #login-menu-item, #logged-user-menu-item {
     position: absolute;
     right: 0;
     margin-right: 1rem;

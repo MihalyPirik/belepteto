@@ -1,41 +1,24 @@
 <div class="mt-6 mx-auto col-12 md:col-6 lg:col-4">
   <div>
     <span class="p-float-label">
-      <input
-        pInputText
-        id="loginName"
-        [(ngModel)]="loginRequest.loginName"
-        class="w-full"
-      />
+      <input pInputText id="loginName" [(ngModel)]="loginRequest.loginName" class="w-full" />
       <label for="loginName">Felhasználó</label>
     </span>
   </div>
 
   <div class="mt-4">
     <span class="p-float-label">
-      <p-password
-        id="password"
-        [(ngModel)]="loginRequest.password"
-        styleClass="w-full"
-        inputStyleClass="w-full"
-        [toggleMask]="true"
-      ></p-password>
+      <p-password id="password" [(ngModel)]="loginRequest.password" styleClass="w-full" inputStyleClass="w-full"
+        [toggleMask]="true"></p-password>
       <label for="password">Jelszó</label>
     </span>
   </div>
 
-  @if (errorMessage) {
-  <div class="mt-4 text-center text-red-500 font-bold">
-    {{ errorMessage }}
-  </div>
-  }
+  <p-messages class="mt-4" [(value)]="errorMessages" [enableService]="false" [closable]="true">
+    {{ errorMessages }}
+  </p-messages>
 
   <div class="mt-4 text-center">
-    <p-button
-      label="Bejelentkezés"
-      icon="pi pi-check"
-      [loading]="loading"
-      (click)="login()"
-    ></p-button>
+    <p-button label="Bejelentkezés" icon="pi pi-check" [loading]="loading" (click)="login()"></p-button>
   </div>
 </div>
