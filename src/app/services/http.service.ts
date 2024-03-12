@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { UserModel } from '../models/user-model';
+import { TerminalModel } from '../models/terminal.model';
 
 @Injectable({
   providedIn: 'root',
@@ -53,5 +54,27 @@ export class HttpService {
         this.logout();
       }
     }
+  }
+
+  getTerminals(): Observable<TerminalModel[]> {
+    return this.http.get<TerminalModel[]>(`${this.APIUrl}/terminal`);
+  }
+
+  postTerminal(model: TerminalModel): Observable<TerminalModel> {
+    return this.http.post<TerminalModel>(`${this.APIUrl}/terminal`, model);
+  }
+
+  modiflyTerminal(model: TerminalModel): Observable<TerminalModel> {
+    return this.http.put<TerminalModel>(`${this.APIUrl}/terminal`, model);
+  }
+
+  deleteTerminal(id: number): Observable<any> {
+    // var options = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type': 'application/json',
+    //   }),
+    //   body: {}
+    // }
+    return this.http.delete<any>(`${this.APIUrl}/terminal/${id}`);
   }
 }

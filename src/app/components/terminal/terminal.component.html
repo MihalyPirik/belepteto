@@ -1,0 +1,33 @@
+<h1 class="text-center">Terminálok</h1>
+
+<p-table [value]="terminals" dataKey="id" editMode="row">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Azonosító</th>
+      <th>Megnevezés</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-terminal let-editing="editing" let-ri="rowIndex">
+    <tr [pEditableRow]="terminal">
+      <td>{{terminal.id}}</td>
+      <td>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            input box
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{terminal.name}}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td>
+        @if (editing) {
+          <button>
+          </button>
+        } @else {
+          <button pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="editInit(terminal)"></button>
+        }
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

@@ -14,11 +14,14 @@ import { PasswordModule} from 'primeng/password';
 import { ButtonModule} from 'primeng/button';
 import { MessagesModule } from 'primeng/messages';
 import { authInterceptor } from './services/auth.interceptor';
+import { TerminalComponent } from './components/terminal/terminal.component';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    TerminalComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { authInterceptor } from './services/auth.interceptor';
     InputTextModule,
     PasswordModule,
     ButtonModule,
-    MessagesModule
+    MessagesModule,
+    TableModule
   ],
   providers: [
     provideHttpClient(withInterceptors([authInterceptor]))
